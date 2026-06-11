@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>🎧</title>
+    <style>
+        body {
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial;
+        }
+        .box {
+            text-align: center;
+            color: white;
+        }
+        button {
+            margin-top: 30px;
+            padding: 12px 24px;
+            font-size: 18px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>🔊 Стон включён</h2>
+        <audio id="audio" autoplay loop>
+            <source src="https://www.myinstants.com/media/sounds/moan_4U8uJhD.mp3">
+        </audio>
+        <button onclick="document.getElementById('audio').play()">▶ если тихо</button>
+    </div>
+
+    <script>
+        // Попытка авто-воспроизведения (обходит блокировку браузера)
+        window.addEventListener('click', function once() {
+            document.getElementById('audio').play();
+            window.removeEventListener('click', once);
+        });
+    </script>
+</body>
+</html>
